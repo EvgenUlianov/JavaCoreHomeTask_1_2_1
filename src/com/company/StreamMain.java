@@ -8,7 +8,7 @@ import java.util.stream.Stream;
 
 public class StreamMain {
 
-    public StreamMain(List<Integer> intList) {
+    public static void doStreamMain(List<Integer> intList) {
 
         intList.stream()
                 .filter(x -> x > 0)

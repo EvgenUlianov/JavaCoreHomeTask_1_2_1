@@ -9,19 +9,29 @@ public class Main {
 
         List<Integer> intList = Arrays.asList(1, 2, 5, 16, -1, -2, 0, 32, 3, 5, 8, 23, 4);
 
-        new StreamMain(intList);
+        StreamMain.doStreamMain(intList);
 
-        Set<Integer> secondList = new TreeSet<>();
+        List<Integer> secondList = new ArrayList<>();
+
         for (Integer x : intList) {
             if (x > 0)
                 if (x % 2 == 0)
                     secondList.add(x);
         }
 
-        Iterator<Integer> key = secondList.iterator();
-        while (key.hasNext()) System.out.println(key.next());
+        for (int i = 0; i < secondList.size() ; i++) {
+            for (int j = 0; j < i; j++) {
+                if  (secondList.get(j) >  secondList.get(i)) {
+                    Integer a = secondList.get(j);
+                    secondList.set(j, secondList.get(i));
+                    secondList.set(i, a);
+                }
+            }
+        }
 
-
+        for (Integer x : secondList) {
+            System.out.println(x);
+        }
 
     }
 }
