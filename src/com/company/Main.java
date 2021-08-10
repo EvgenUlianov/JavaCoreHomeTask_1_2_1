@@ -11,25 +11,32 @@ public class Main {
 
         StreamMain.doStreamMain(intList);
 
-        List<Integer> secondList = new ArrayList<>();
+        //List<Integer> secondList = new ArrayList<>();
+        Integer[] secondList = new Integer[intList.size()];
 
+        int index = 0;
         for (Integer x : intList) {
             if (x > 0)
                 if (x % 2 == 0)
-                    secondList.add(x);
+                    secondList[index++] = x.intValue();
         }
 
-        for (int i = 0; i < secondList.size() ; i++) {
+        int[] thirdList = new int[index];
+        for (int i = 0; i < index ; i++)
+            thirdList[i] = secondList[i];
+
+
+        for (int i = 0; i < index ; i++) {
             for (int j = 0; j < i; j++) {
-                if  (secondList.get(j) >  secondList.get(i)) {
-                    Integer a = secondList.get(j);
-                    secondList.set(j, secondList.get(i));
-                    secondList.set(i, a);
+                if  (thirdList[j] > thirdList[i]) {
+                    Integer a = thirdList[j];
+                    thirdList[j] = thirdList[i];
+                    thirdList[i] = a;
                 }
             }
         }
 
-        for (Integer x : secondList) {
+        for (int x : thirdList) {
             System.out.println(x);
         }
 
